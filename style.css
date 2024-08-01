@@ -1,0 +1,25 @@
+p {
+    font-weight: bolder;
+}
+
+button {
+	border-radius: 3px;
+	background-color: blue;
+	color: aliceblue;
+}
+button:hover 
+{background-color: lightblue;}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#error {
+    color: red;
+    
+}
