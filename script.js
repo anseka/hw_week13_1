@@ -5,6 +5,20 @@ let days = document.querySelector('#days');
 let result = document.querySelector('#result');
 let error = document.querySelector('#error');
 
+function dates(str) {
+    let checkDays = str.toString();
+    let checkDaysLastNumber = checkDays.slice((checkDays.length - 1), checkDays.length);
+    if ((checkDaysLastNumber == 0) || ((checkDaysLastNumber >=5) && ((checkDaysLastNumber <= 9)))) {
+        return `дней`; 
+    }
+        else if (checkDaysLastNumber == 1) {
+            return `день`; 
+        }
+        else if ((checkDaysLastNumber >=2) && (checkDaysLastNumber <=4)) {
+            return `дня`; 
+        }
+                    }
+
 button.addEventListener('click', function () {
     error.textContent = ``;
     days.textContent = ``;
@@ -33,9 +47,11 @@ button.addEventListener('click', function () {
         yearBth.setFullYear(currentYear);
         diffInMilliseconds = yearBth - currentDate;  
         }
+
     let milisecondsPass = new Date(diffInMilliseconds); // сконвертировали разницу в дату
     let dayPass = Math.round(milisecondsPass/ (1000 * 60 * 60 * 24)); // округлили дни
-    days.textContent = `До дня рождения осталось ${dayPass} дней`;
+    let nameDate = dates(dayPass);
+    days.textContent = `До дня рождения осталось: ${dayPass} ${nameDate}.`;
     return;
 }
 );
